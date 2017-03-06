@@ -1,14 +1,19 @@
 package source;
 
 import java.rmi.registry.*;
+import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
+import java.net.MalformedURLException;
+import java.rmi.AlreadyBoundException;
+import java.rmi.Naming;
 import java.rmi.RMISecurityManager;
 
 /**
  * @author morat 
  */
-public class Server {
-  /**
+public class Server  {
+
+/**
    * @param args
    */
   public static void main(final String args[]) {
@@ -22,8 +27,8 @@ public class Server {
     }
     try  {
       nom = args[0];
-      port = Integer.parseInt(args[1]);
-      nombre = Integer.parseInt(args[2]);
+      port = Integer.parseInt(args[2]);
+      nombre = Integer.parseInt(args[1]);
     }catch(Exception e) {
       System.out.println("Server <nom générique des objets distants> <nombre de noms> <port du registry>");
       System.exit(1);
@@ -37,7 +42,7 @@ public class Server {
     
     // A COMPLETER : MISE EN PLACE DU REGISTRY
     try {
-		registry = LocateRegistry.createRegistry(1099);
+		registry = LocateRegistry.createRegistry(port);
 	} catch (RemoteException e1) {
 		e1.printStackTrace();
 	}
@@ -47,6 +52,8 @@ public class Server {
     try {
       for(int i=1;i<=nombre;i++){
       	// A COMPLETER : CONSTRUCTION ET EXPORTATION DES OBJETS DISTANTS
+    	Supplier s = new Supplier("Supplier"+i);
+    	Naming.bind("Supplier"+i, s);
       }
       System.out.println("Tous les objets sont enregistrés dans le serveur d'objets distants");
     } catch (Exception e) {

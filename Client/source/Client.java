@@ -26,8 +26,13 @@ public class Client {
 			System.out.println("Client <hostname> <nom générique des objets distants> <nombre d'objets distants> <nombre de clients>");
 			System.exit(1);
 		}	
-		// installation d'un securityManager 
-		// A COMPLETER : INSTALLATION DU SECURITYMANAGER
+		// installation d'un securityManager
+	    // A COMPLETER : INSTALLATIOND'UN SECURITYMANAGER
+	    SecurityManager a = System.getSecurityManager();
+	    if(System.getSecurityManager()==null){
+	    	System.setSecurityManager(new SecurityManager());
+	    }
+	    
 		// Démarrage des consommateurs
 		for(int i=0;i<nombre;i++)  {
 			new Customer(host,nom,((int)(Math.random()*num))+1,i).start();
