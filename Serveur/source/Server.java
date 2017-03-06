@@ -1,11 +1,9 @@
-package serveur;
+package source;
 
 import java.rmi.registry.*;
 import java.rmi.RemoteException;
 import java.rmi.RMISecurityManager;
 
-import commun.*;
-import client.*;
 /**
  * @author morat 
  */
@@ -32,7 +30,20 @@ public class Server {
     }
     // installation d'un securityManager
     // A COMPLETER : INSTALLATIOND'UN SECURITYMANAGER
+    SecurityManager a = System.getSecurityManager();
+    if(System.getSecurityManager()==null){
+    	System.setSecurityManager(new SecurityManager());
+    }
+    
     // A COMPLETER : MISE EN PLACE DU REGISTRY
+    try {
+		registry = LocateRegistry.createRegistry(1099);
+	} catch (RemoteException e1) {
+		e1.printStackTrace();
+	}
+    
+    
+    
     try {
       for(int i=1;i<=nombre;i++){
       	// A COMPLETER : CONSTRUCTION ET EXPORTATION DES OBJETS DISTANTS

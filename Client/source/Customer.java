@@ -1,9 +1,8 @@
-package client;
+package source;
 
 import java.rmi.Naming;
 import java.util.Random;
-import serveur.*;
-import commun.*;
+
 /**
  * @author morat 
  */

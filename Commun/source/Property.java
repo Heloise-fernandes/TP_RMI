@@ -1,9 +1,6 @@
-package commun;
+package source;
 
 import java.io.Serializable;
-
-import serveur.*;
-import client.*;
 
 /**
  * J<i>ava</i> U<i>tilities</i> for S<i>tudents</i>

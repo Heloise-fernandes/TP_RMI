@@ -1,8 +1,7 @@
-package client;
+package source;
 
 import java.rmi.RMISecurityManager;
-import serveur.*;
-import commun.*;
+
 /**
  * @author morat 
  */
