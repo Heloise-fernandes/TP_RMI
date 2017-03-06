@@ -26,6 +26,7 @@ public class Customer extends Thread {
 	 */
 	public  Customer(String ou, String qui, int num, int client) {
 		this.ou=ou; this.qui=qui; this.num=num; this.client=client;
+		System.out.print(this + "->" + "://" + ou + "/" + qui + num);
 	}
 	public void run(){
 		try{

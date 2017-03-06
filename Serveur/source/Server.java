@@ -35,11 +35,11 @@ public class Server  {
     }
     // installation d'un securityManager
     // A COMPLETER : INSTALLATIOND'UN SECURITYMANAGER
-    SecurityManager a = System.getSecurityManager();
+   /* SecurityManager a = System.getSecurityManager();
     if(System.getSecurityManager()==null){
     	System.setSecurityManager(new SecurityManager());
     }
-    
+    */
     // A COMPLETER : MISE EN PLACE DU REGISTRY
     try {
 		registry = LocateRegistry.createRegistry(port);
@@ -52,8 +52,8 @@ public class Server  {
     try {
       for(int i=1;i<=nombre;i++){
       	// A COMPLETER : CONSTRUCTION ET EXPORTATION DES OBJETS DISTANTS
-    	Supplier s = new Supplier("Supplier"+i);
-    	Naming.bind("Supplier"+i, s);
+    	Supplier s = new Supplier(nom+i);
+    	Naming.bind(nom+i, s);
       }
       System.out.println("Tous les objets sont enregistrés dans le serveur d'objets distants");
     } catch (Exception e) {

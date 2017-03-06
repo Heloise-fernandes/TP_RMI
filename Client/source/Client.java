@@ -28,10 +28,10 @@ public class Client {
 		}	
 		// installation d'un securityManager
 	    // A COMPLETER : INSTALLATIOND'UN SECURITYMANAGER
-	    SecurityManager a = System.getSecurityManager();
+	    /*SecurityManager a = System.getSecurityManager();
 	    if(System.getSecurityManager()==null){
 	    	System.setSecurityManager(new SecurityManager());
-	    }
+	    }*/
 	    
 		// Démarrage des consommateurs
 		for(int i=0;i<nombre;i++)  {
