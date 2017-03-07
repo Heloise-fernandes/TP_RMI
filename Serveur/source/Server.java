@@ -52,7 +52,7 @@ public class Server  {
     try {
       for(int i=1;i<=nombre;i++){
       	// A COMPLETER : CONSTRUCTION ET EXPORTATION DES OBJETS DISTANTS
-    	Supplier s = new Supplier(nom+i);
+    	Supplier s = new Supplier(i);
     	Naming.bind(nom+i, s);
       }
       System.out.println("Tous les objets sont enregistrés dans le serveur d'objets distants");

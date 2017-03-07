@@ -1,6 +1,8 @@
 package source;
 
 import java.rmi.Naming;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.Random;
 
 /**
@@ -26,14 +28,15 @@ public class Customer extends Thread {
 	 */
 	public  Customer(String ou, String qui, int num, int client) {
 		this.ou=ou; this.qui=qui; this.num=num; this.client=client;
-		System.out.print(this + "->" + "://" + ou + "/" + qui + num);
+		System.out.println(this + "->" + "://" + ou + "/" + qui + num);
 	}
 	public void run(){
 		try{
 			synchronized (Customer.class){
-				System.out.print(this + "->" + "://" + ou + "/" + qui + num);
+				System.out.println(this + "->" + "://" + ou + "/" + qui + num);
 				// A COMPLETER : ACQUISITION DE L'OBJET DISTANT
-				obj = (ISupplier) Naming.lookup("rmi"+"://" + ou + "/" + qui + num);
+				Registry registry = LocateRegistry.getRegistry(1099);
+				obj = (ISupplier) registry.lookup(qui+client);
 				
 				System.out.println(" est lié a " + obj.name());
 				

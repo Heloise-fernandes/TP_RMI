@@ -5,10 +5,10 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class Supplier extends  UnicastRemoteObject implements ISupplier {
 
-	String name;
-	protected Supplier(String name) throws RemoteException {
+	int id;
+	protected Supplier(int id) throws RemoteException {
 		super();
-		this.name = name;
+		this.id = id;
 	}
 
 	/**
@@ -18,7 +18,7 @@ public class Supplier extends  UnicastRemoteObject implements ISupplier {
 
 	@Override
 	public String question() throws RemoteException {
-		return "Hello i'm "+this.name;
+		return "Hello i'm "+this;
 	}
 
 	@Override
@@ -30,11 +30,11 @@ public class Supplier extends  UnicastRemoteObject implements ISupplier {
 	@Override
 	public String name() throws RemoteException {
 		// TODO Auto-generated method stub
-		return name;
+		return this.toString();
 	}
 	
 	public String toString(){
-		return this.name;
+		return "supplier"+id;
 	}
 
 }

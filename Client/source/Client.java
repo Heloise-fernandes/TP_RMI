@@ -34,7 +34,7 @@ public class Client {
 	    }*/
 	    
 		// Démarrage des consommateurs
-		for(int i=0;i<nombre;i++)  {
+		for(int i=1;i<=nombre;i++)  {
 			new Customer(host,nom,((int)(Math.random()*num))+1,i).start();
 		}
 	}
